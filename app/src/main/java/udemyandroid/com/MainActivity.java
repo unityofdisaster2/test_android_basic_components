@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //se busca el nombre del componente en la vista y se asigna a una variable para controlarlo
         btnLogin = findViewById(R.id.buttonLogin);
         editTextEmail = findViewById(R.id.editTextEmail);
         editTextPassword = findViewById(R.id.editTextPassword);
@@ -31,13 +32,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         Button button = (Button)v;
         Log.i("APP","Click en login");
-        //para navegar a otro activity
+
         String email = editTextEmail.getText().toString();
         String password = editTextPassword.getText().toString();
 
         if(!email.isEmpty() && !password.isEmpty()){
+            //para navegar a otro activity
             Intent intentLogin = new Intent(this,HomeActivity.class);
+            //se utiliza putExtra para mandar valores a otra activity
             intentLogin.putExtra("valorEmail",email);
+
             startActivity(intentLogin);
         }else{
             editTextEmail.setError("Complete el email y la contraseña");

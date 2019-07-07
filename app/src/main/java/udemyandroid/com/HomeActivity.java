@@ -13,6 +13,8 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+
         //aqui se almacenan todos los extras definidos en intent
         Bundle extras = getIntent().getExtras();
         String emailUsuario = extras.getString("valorEmail");
